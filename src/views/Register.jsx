@@ -4,15 +4,48 @@ import '../assets/css/index.css'
 import TextForm from '../components/TextForm.jsx'
 import Buttons from '../components/Button.jsx'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import {Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Register(params){
     const [isShowPassword, setIsShowPassword] = useState(false);
+    const navigate = useNavigate ();
 
-    const handleSubmit =(event)=>{
-        event.preventDefault();
-        console.log("haii")
+      const handleSubmit = async (event) => {
+      event.preventDefault();
+
+        const data = new FormData(event.currentTarget);
+
+        
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+
+        const config = {
+            headers: {
+                "Content-type": "application/json",
+                'X-CSRF-TOKEN': csrfToken,
+            },
+        };  
+
+
+        await axios.post(`http://edwin.test/api/register`, {            
+            username: data.get("username"),
+            email: data.get("email"),
+            password : data.get("password")
+        }, config)
+        .then((response) => {
+            alert('Registrasi Berhasil Silahkan Login !');
+            navigate("/");
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
     }
+
+
     return (
+      <>
+        <meta name="csrf-token" content="{{ csrf_token() }}"/>
         <Container maxWidth="sm">
           <Box className="box" 
           component="form"
@@ -80,10 +113,11 @@ export default function Register(params){
             />
              <span style={{ display:"flex", flexDirection:"row", alignItems:"center" }}>
               <h5 className="subtitle">Already have an account?</h5>
-              <a className="anchor">Sign In!</a>
+              <Link to='/'className="anchor">Sign In!</Link>
             </span>
             </Box>
           </Box>
         </Container>
+        </>
     )
 }

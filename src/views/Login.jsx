@@ -4,15 +4,49 @@ import '../assets/css/index.css'
 import TextForm from '../components/TextForm.jsx'
 import Buttons from '../components/Button.jsx'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import {Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Login(params){
     const [isShowPassword, setIsShowPassword] = useState(false);
+    const navigate = useNavigate ();
+    const handleSubmit = async (event) => {
+      event.preventDefault();
 
-    const handleSubmit =(event)=>{
-        event.preventDefault();
-        console.log("haii")
+        const data = new FormData(event.currentTarget);
+
+        
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+
+        const config = {
+            headers: {
+                "Content-type": "application/json",
+                'X-CSRF-TOKEN': csrfToken,
+            },
+        };  
+
+
+        await axios.post(`http://edwin.test/api/login`, {            
+            username: data.get("username"),
+            password : data.get("password")
+        }, config)
+        .then((response) => {
+            alert('Login berhasil!');
+            sessionStorage.setItem('token',JSON.stringify(response.data.access_token));
+            sessionStorage.setItem('user',JSON.stringify(response.data.user));
+            navigate("/dashboard");
+            console.log(response.data);
+        }, (error) => {
+            console.log(error.response.data.message);
+        });
     }
+
+
+
     return (
+      <>
+       <meta name="csrf-token" content="{{ csrf_token() }}"/>
         <Container maxWidth="sm">
           <Box className="box" 
           component="form"
@@ -69,10 +103,11 @@ export default function Login(params){
             />
             <span style={{ display:"flex", flexDirection:"row", alignItems:"center" }}>
               <h5 className="subtitle">Don't have any account?</h5>
-              <a className="anchor">Register!</a>
+              <Link to='/register'className="anchor">Register!</Link>
             </span>
             </Box>
           </Box>
         </Container>
+        </>
     )
 }
