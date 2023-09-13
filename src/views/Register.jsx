@@ -5,7 +5,7 @@ import TextForm from '../components/TextForm.jsx'
 import Buttons from '../components/Button.jsx'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-export default function Login(params){
+export default function Register(params){
     const [isShowPassword, setIsShowPassword] = useState(false);
 
     const handleSubmit =(event)=>{
@@ -19,7 +19,19 @@ export default function Login(params){
           onSubmit={handleSubmit}
           >
             <Box className="card">
-            <div className="title">Sign In</div>
+            <div className="title">Register</div>
+
+            <TextForm 
+            id="email"
+            name="email"
+            label="Email"
+            fullWidth
+            required
+            margin="normal"
+            autoFocus
+            type="email"
+            size="small"
+            />
 
             <TextForm 
             id="username"
@@ -31,8 +43,7 @@ export default function Login(params){
             margin="normal"
             autoFocus
             type="text"
-            size="small"
-        
+            size="small" 
             />
 
             <div style={{ display:"flex", width:"100%", position:"relative"}}>
@@ -67,9 +78,9 @@ export default function Login(params){
                 borderRadius:50
              }} 
             />
-            <span style={{ display:"flex", flexDirection:"row", alignItems:"center" }}>
-              <h5 className="subtitle">Don't have any account?</h5>
-              <a className="anchor">Register!</a>
+             <span style={{ display:"flex", flexDirection:"row", alignItems:"center" }}>
+              <h5 className="subtitle">Already have an account?</h5>
+              <a className="anchor">Sign In!</a>
             </span>
             </Box>
           </Box>

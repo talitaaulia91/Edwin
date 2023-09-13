@@ -7,7 +7,32 @@
     font-family:'roboto';
     color:#4D2DB7;
     font-size:40px; 
+}
 
+.subtitle{
+    font-weight:500;
+    font-family:'roboto';
+    color:#000000;
+    font-size:14px;
+    margin-right: 5px; 
+}
+
+
+.anchor{
+    font-weight:500;
+    font-family:'roboto';
+    color:#4D2DB7;
+    font-size:14px;
+    margin-right: 5px; 
+}
+
+
+.anchor:hover{
+    font-weight:500;
+    font-family:'roboto';
+    color:#e148d6;
+    font-size:14px;
+    margin-right: 5px; 
 }
 
 .box{
