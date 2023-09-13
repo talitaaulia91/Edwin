@@ -3,13 +3,16 @@ import { Container, Typography, Box } from '@mui/material';
 import '../assets/css/index.css'
 import TextForm from '../components/TextForm.jsx'
 import Buttons from '../components/Button.jsx'
+import Alerts from '../components/Alert.jsx'
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import {Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Login(params){
     const [isShowPassword, setIsShowPassword] = useState(false);
+    const [errAuth, setErrAuth] = useState(false);
     const navigate = useNavigate ();
+
     const handleSubmit = async (event) => {
       event.preventDefault();
 
@@ -32,14 +35,17 @@ export default function Login(params){
             password : data.get("password")
         }, config)
         .then((response) => {
-            alert('Login berhasil!');
             sessionStorage.setItem('token',JSON.stringify(response.data.access_token));
             sessionStorage.setItem('user',JSON.stringify(response.data.user));
             navigate("/dashboard");
             console.log(response.data);
         }, (error) => {
-            console.log(error.response.data.message);
+            setErrAuth(true);
         });
+    }
+
+    const handleClose = () => {
+      setErrAuth(false);
     }
 
 
@@ -101,6 +107,9 @@ export default function Login(params){
                 borderRadius:50
              }} 
             />
+
+             <Alerts label="Username atau password salah!" open={errAuth} severity ="error"onClose={handleClose}/>
+
             <span style={{ display:"flex", flexDirection:"row", alignItems:"center" }}>
               <h5 className="subtitle">Don't have any account?</h5>
               <Link to='/register'className="anchor">Register!</Link>

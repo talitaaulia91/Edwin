@@ -3,20 +3,21 @@ import {useState, useEffect,React} from 'react';
 
 export default function Dashboard(props){
     const [token, setToken] = useState(null);
+    const [user, setUser]   = useState(null);
+
     useEffect(() => {
-        getToken();
+        getUser();
     }, []);
-    async function getToken() {
-        const userString =  sessionStorage.getItem('token')
-        const user_detail = JSON.parse(userString);
-        setToken(user_detail);
+
+    async function getUser() {
+        const userString =  sessionStorage.getItem('user')
+        const user_detail = JSON.parse(userString)
+        setUser(user_detail);
     }
 
-    if (!token) return 'loading...';
-    console.log(token)
    return(
     <>
-     
+        {user}
     </>
    )
 }
