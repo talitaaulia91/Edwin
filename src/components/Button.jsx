@@ -8,17 +8,19 @@ export default function Buttons(props){
         size={props.size}
         type={props.type}
         style={{ 
-            width:200,
+            width:"80%",
             marginTop:20,
+            alignItems:"center",
+            justifyContent:"center",
+            display:"flex",
             backgroundColor:"#9D44C0",
             borderStartStartRadius:0,
             borderEndEndRadius:15,
             borderTopRightRadius:15,
-            borderBottomLeftRadius:15 
+            borderBottomLeftRadius:15,
          }}
         >
         {props.label}</Button>
 
     );
-
 }

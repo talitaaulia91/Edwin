@@ -1,4 +1,5 @@
 import {useState, useEffect,React} from 'react';
+import Sidebar from '../components/Sidebar'
 
 
 export default function Dashboard(props){
@@ -17,7 +18,7 @@ export default function Dashboard(props){
 
    return(
     <>
-        {user}
+        <Sidebar/>
     </>
    )
 }

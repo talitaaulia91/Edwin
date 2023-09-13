@@ -17,6 +17,14 @@
     margin-right: 5px; 
 }
 
+.listItem{
+    font-weight:500;
+    font-family:'roboto';
+    color:#4D2DB7;
+    font-size:18px;
+    margin-right: 5px; 
+}
+
 
 .anchor{
     font-weight:500;
@@ -58,4 +66,5 @@
     flex-direction: column;
     border-radius:0px 40px 40px 40px;
 }
+
 
