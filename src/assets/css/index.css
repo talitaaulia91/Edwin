@@ -1,0 +1,70 @@
+:root{
+    background-color:#4D2DB7;
+}
+
+.title{
+    font-weight:700;
+    font-family:'roboto';
+    color:#4D2DB7;
+    font-size:40px; 
+}
+
+.subtitle{
+    font-weight:500;
+    font-family:'roboto';
+    color:#000000;
+    font-size:14px;
+    margin-right: 5px; 
+}
+
+.listItem{
+    font-weight:500;
+    font-family:'roboto';
+    color:#4D2DB7;
+    font-size:18px;
+    margin-right: 5px; 
+}
+
+
+.anchor{
+    font-weight:500;
+    font-family:'roboto';
+    color:#4D2DB7;
+    font-size:14px;
+    margin-right: 5px; 
+}
+
+
+.anchor:hover{
+    font-weight:500;
+    font-family:'roboto';
+    color:#e148d6;
+    font-size:14px;
+    margin-right: 5px; 
+}
+
+.box{
+    margin-top:30%;
+    padding-left:10%;
+    padding-right:10%;
+    align-items: center;
+    align-content:center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+.card{
+    background-color:#ffffff;
+    padding:5%;
+    width:100%;
+    height:400px;
+    align-items: center;
+    align-content:center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    border-radius:0px 40px 40px 40px;
+}
+
+
