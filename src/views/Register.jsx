@@ -161,7 +161,7 @@ export default function Register(params){
 
             <Buttons
             variant="contained"
-            label="Sign In"
+            label="Sign Up"
             size="small"  
             type="submit"
             sx={{ 
