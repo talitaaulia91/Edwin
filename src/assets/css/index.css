@@ -66,5 +66,18 @@
     flex-direction: column;
     border-radius:0px 40px 40px 40px;
 }
+.chart-card{
+    background-color:#ffffff;
+    padding:5%;
+    width:100%;
+    margin:auto;
+    align-items: center;
+    align-content:center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    border-radius:5px;
+    margin-top:10px
+}
 
 

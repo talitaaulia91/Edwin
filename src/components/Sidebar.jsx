@@ -2,6 +2,7 @@ import * as React from 'react';
 import '../assets/css/index.css'
 import Cards from '../components/Card'
 import Buttons from '../components/Button.jsx'
+import BasicArea from '../components/Chart.jsx'
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -127,7 +128,18 @@ function ResponsiveDrawer(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)`}, background:"#4D2DB7" }}
       >
         <Toolbar />
+        <div>
         <Cards username={props.username}></Cards>
+        </div>
+       {/* <div>
+     
+          <Box className="chart-card" gridColumn="span 6">
+        <BasicArea></BasicArea>
+        </Box>
+      
+       
+       </div> */}
+      
       </Box>
     </Box>
       </>    
