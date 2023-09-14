@@ -32,6 +32,7 @@ export default function Register(params){
         const lowerCaseRegex = /[a-z]+/;
         const numbersRegex = /[0-9]+/;
 
+
         if(password.length < 8){
           setErrEightChar(true);
           return;

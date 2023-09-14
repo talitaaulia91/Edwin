@@ -1,24 +1,24 @@
 import {useState, useEffect,React} from 'react';
-import Sidebar from '../components/Sidebar'
+import ResponsiveDrawer from '../components/Sidebar'
+import Cards from '../components/Card'
+import {Link, useNavigate} from 'react-router-dom';
+
 
 
 export default function Dashboard(props){
-    const [token, setToken] = useState(null);
-    const [user, setUser]   = useState(null);
+      const navigate = useNavigate ();
+      const token = sessionStorage.getItem('token')
+      const user = sessionStorage.getItem('user')
+      const userDetail = JSON.parse(user)
 
-    useEffect(() => {
-        getUser();
-    }, []);
-
-    async function getUser() {
-        const userString =  sessionStorage.getItem('user')
-        const user_detail = JSON.parse(userString)
-        setUser(user_detail);
-    }
 
    return(
     <>
-        <Sidebar/>
+        <ResponsiveDrawer 
+        email={userDetail.email}
+        username={userDetail.username}
+        />
+      
     </>
    )
 }

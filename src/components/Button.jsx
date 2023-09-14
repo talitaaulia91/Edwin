@@ -7,6 +7,7 @@ export default function Buttons(props){
         variant={props.variant}
         size={props.size}
         type={props.type}
+        onClick={props.onClick}
         style={{ 
             width:"80%",
             marginTop:20,
