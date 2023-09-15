@@ -30,7 +30,7 @@ export default function Login(params){
         };  
 
 
-        await axios.post(`http://edwin.test/api/login`, {            
+        await axios.post(`http://127.0.0.1:8000/api/login`, {            
             username: data.get("username"),
             password : data.get("password")
         }, config)

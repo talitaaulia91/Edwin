@@ -75,7 +75,7 @@ export default function Register(params){
         };  
 
 
-        await axios.post(`http://edwin.test/api/register`, {            
+        await axios.post(`http://127.0.0.1:8000/api/register`, {            
             username: data.get("username"),
             email: data.get("email"),
             password : data.get("password")
